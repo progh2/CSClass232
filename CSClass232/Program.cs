@@ -127,6 +127,13 @@ namespace CSClass232
                     Console.WriteLine(item);
                 }
             }
+
+            IBasic test = new TestClass();
+            test.TestProperty = 3;
+            test.TestInstanceMethod();
+            //test.foobar();
+            (test as TestClass).foobar();
+
         }
 
         class Dummy : IDisposable
@@ -134,6 +141,23 @@ namespace CSClass232
             public void Dispose()
             {
                 Console.WriteLine("Dispose() 메서드를 호출했습니다.");
+            }
+        }
+
+        class TestClass : IBasic
+        {
+            public int foobar()
+            {
+                return -1;
+            }
+            public int TestProperty { 
+                get => throw new NotImplementedException(); 
+                set => throw new NotImplementedException(); 
+            }
+
+            public int TestInstanceMethod()
+            {
+                throw new NotImplementedException();
             }
         }
 

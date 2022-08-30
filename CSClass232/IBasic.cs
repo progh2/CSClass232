@@ -8,5 +8,7 @@ namespace CSClass232
 {
     interface IBasic
     {
+        int TestInstanceMethod();
+        int TestProperty { get; set; }
     }
 }
